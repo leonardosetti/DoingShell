@@ -6,7 +6,7 @@
 # Purpose: This is a simple tool get all updating tasks done automatically instead type each call to update your system 
 # Author:  Leonardo Setti
 # Created date: 27/11/2018
-# Last modification: 14/07/2019
+# Last modification: 18/08/2019
 # 
 # --- GUIDE:
 #
@@ -76,14 +76,11 @@ f_today(){
 	TODAY=$(date|awk '{print $2" " $3" " $4}')
 	echo -en "$TODAY"
 	}
-	
-
 
 f_timenow(){
 	TIMENOW=$(date|awk '{print $5}')
 	echo -en "$TIMENOW"
 }
-
 
 check_connection(){			
 	if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
@@ -108,38 +105,23 @@ SAGAR='sudo apt-get autoremove'
 
 echo -en "${FC2ON}Current User: ${SATT_BLD}${FC1ON}$(whoami)${FCOFF}\n"
 echo -en "Today: $(f_today) Time now: $(f_timenow)\n"
-
 echo -e ">>>>>>>>>> Updating sources:"
-
 echo -en ${FC3ON}$(printf ${DRVL3})
-
-$SAGAR|grep upgraded && $SAGUD 
-echo -e '' 
+$SAGAR|grep upgraded && $SAGUD
 echo -en ${FC6ON}$(printf ${DRVL3})
 echo -e ">>>>>>>>>> Upgrading elegible softwares and distro if possible"
 echo -en ${FC6ON}$(printf ${DRVL3})
-echo -e ''
 $SAGUG 
-
 $SAGDU
-echo -e '' 
 echo -en ${FC6ON}$(printf ${DRVL3})
 echo -e ">>>>>>>>>> Cleaning remaining pieces"
 echo -en ${FC6ON}$(printf ${DRVL3})
-echo -e ''
 $SAGAR && $SAGAC
-echo -e '' 
-echo -e "##############################################################################################################"
 echo -e "#  If you have no issues with your connection, all steps should have been completed successfully, good luck! #"
 echo -e "#  Update process is DONE!                                                                                   #"
-echo -e "##############################################################################################################"
-echo -e ''
-echo -e ''
-
 else
 printf "You are offline! Check your connection. "
 echo -en ${FC1ON}$(printf ${DRVL5})
 fi
-
 exit 0
 kill $!
