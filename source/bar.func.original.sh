@@ -6,13 +6,10 @@ prog() {
     printf -v dots "%*s" "$(( $p*$w/100 ))" ""; dots=${dots// /.};
     # print those dots on a fixed-width space plus the percentage etc. 
     printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*"; 
-} 
-
-	for x in {1..1} ; do       
-	ping -q -c 3 -W 1 192.168.25.130 &>/dev/null
-	prog "$x" still working...
-
-	done ; echo                 
-
-exit 0
+}
+# test loop
+for x in {1..100} ; do
+    prog "$x" still working...
+    sleep .1   # do some work here
+done ; echo
 kill $!
