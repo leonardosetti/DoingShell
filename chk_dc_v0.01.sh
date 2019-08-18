@@ -25,18 +25,16 @@
 #
 #
 ###################################################################################################################################
-f_chk_repeater()
-	{
-	if ping -q -c 3 -W 1 192.168.25.15 >/dev/null; then
+f_chk_repeater(){
+	if ping -q -c 3 -W 1 192.168.25.100 >/dev/null; then
 		CRPT_STAT=1
 	else
 		CRPT_STAT=0
 fi
 	echo $CRPT_STAT
 }
-f_chk_router()
-{
-	if ping -q -c 3 -W 1 192.168.25.20 >/dev/null; then
+f_chk_router(){
+	if ping -q -c 3 -W 1 192.168.25.130 >/dev/null; then
 		CROUTER_STAT=1
 	else
 		CROUTER_STAT=0
@@ -45,24 +43,25 @@ echo $CROUTER_STAT
 
 }
 
-f_chk_modem()
-{
+f_chk_modem(){
 	if ping -q -c 3 -W 1 192.168.25.1 >/dev/null; then
 		CMODEM_STAT=1
 	else
 		CMODEM_STAT=0
 fi
 echo $CMODEM_STAT
-
 }
 
+ROW=`printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -`
 
-	clear
+clear
 
 echo ""
+$ROW
 echo "Starting to check your connectivity... wait"
 echo ""
 
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' - 
 ROUTER_STATUS=$(f_chk_router)
 if [ $ROUTER_STATUS -eq 1  ]; then 
 	echo "Router is up!"

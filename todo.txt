@@ -1,0 +1,9 @@
+ Para o script upsys, fazer um check de conexão nos tres dispositivos e escrever o output sómente em caso de falha.
+ Após execução do script matar o processo (kill upsys)
+ Gerar log em caso de conexão perdida
+ Gerar log de Ignorados
+ Gerar log de updates realizados quando diferente de 0
+ processar em silencio escrevendo apenas as saídas de update
+ 
+ Para o script killth inserir confirmação do kill após listagem dos processos alvo
+ Gerar log de kills
