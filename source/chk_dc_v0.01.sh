@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 ###################################################################################################################################
 # Program: chk_dc means check domestic connection
