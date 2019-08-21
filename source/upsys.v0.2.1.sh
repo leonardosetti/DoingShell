@@ -1,5 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash	
-
+#! /bin/bash
 ###################################################################################################################################
 # Progarm: upsys means update the system (automatically)!
 # Version: 0.02
@@ -10,7 +9,7 @@
 # 
 # --- GUIDE:
 #
-# As system user who wants get your system updated rapidly with a single command, just call upsys to run the commonly apt commands
+# As system user who wants get your system updated rapidly with a single command, just call upsys to run the commonly sudo apt-get commands
 
 # UPDATES:
 
@@ -33,14 +32,14 @@
 ###################################################################################################################################
 #Draw different types of lines in terminal screen
 
-DRVL1=$(printf "%`tput cols`s"|sed "s/ /#/g")
-DRVL2=$(printf "%`tput cols`s"|sed "s/ /-/g")
-DRVL3=$(printf "%`tput cols`s"|sed "s/ /_/g")
-DRVL4=$(printf "%`tput cols`s"|sed "s/ /*/g")
-DRVL5=$(printf "%`tput cols`s"|sed "s/ /=/g")
-DRVL6=$(printf "%`tput cols`s"|sed "s/ /+/g")
-DRVL7=$(printf "%`tput cols`s"|sed "s/ />/g")
-DRVL8=$(printf "%`tput cols`s"|sed "s/ /</g")
+DRHL1=$(printf "%`tput cols`s"|sed "s/ /#/g")
+DRHL2=$(printf "%`tput cols`s"|sed "s/ /-/g")
+DRHL3=$(printf "%`tput cols`s"|sed "s/ /_/g")
+DRHL4=$(printf "%`tput cols`s"|sed "s/ /*/g")
+DRHL5=$(printf "%`tput cols`s"|sed "s/ /=/g")
+DRHL6=$(printf "%`tput cols`s"|sed "s/ /+/g")
+DRHL7=$(printf "%`tput cols`s"|sed "s/ />/g")
+DRHL8=$(printf "%`tput cols`s"|sed "s/ /</g")
 
 #Define Fereground Font Colors
 
@@ -98,47 +97,47 @@ connect_status=$(check_connection)
 
 if [ "$connect_status" -eq 1 ]; then 
 echo -en "${SATT_BLK}${SATT_BLD}${FC3ON}You are online!${RATT_BLK}${RATT_BLD}${FCOFF}\n"
-	echo -en ${FC3ON}$(printf ${DRVL5})
+	echo -en ${FC3ON}$(printf ${DRHL5})
 
-SAGUD='apt update'
-SAGUG='apt upgrade -y'
-SAGDU='apt dist-upgrade -y'
-SAGAC='apt autoclean'
-SAGAR='apt autoremove'
+SAGUD='sudo apt-get update'
+SAGUG='sudo apt-get upgrade -y'
+SAGDU='sudo apt-get dist-upgrade -y'
+SAGAC='sudo apt-get autoclean'
+SAGAR='sudo apt-get autoremove'
 
 echo -en "${FC2ON}Current User: ${SATT_BLD}${FC1ON}$(whoami)${FCOFF}\n"
 echo -en "Today: $(f_today) Time now: $(f_timenow)\n"
 
-echo -e ">>>>>>>>>> Updating sources:"
+echo -en  "${FC3ON}$(printf ${DRHL3})${FCOFF}\n"
+echo -en ">>>>>>>>>> Updating sources:\n"
+echo -en "${FC3ON}$(printf ${DRHL3})${FCOFF}\n"
 
-echo -en ${FC3ON}$(printf ${DRVL3})
+	${SAGAR}  && ${SAGUD}|grep -i "upgraded"
 
-$SAGAR|grep upgraded && $SAGUD 
-echo -e '' 
-echo -en ${FC6ON}$(printf ${DRVL3})
-echo -e ">>>>>>>>>> Upgrading elegible softwares and distro if possible"
-echo -en ${FC6ON}$(printf ${DRVL3})
-echo -e ''
-$SAGUG 
+echo -en "${FC6ON}$(printf ${DRHL3})${FCOFF}\n"
+echo -en ">>>>>>>>>> Upgrading elegible softwares and distro if possible\n"
+echo -en "${FC6ON}$(printf ${DRHL3})${FCOFF}\n"
+	
+	$SAGUG 
+	$SAGDU
 
-$SAGDU
-echo -e '' 
-echo -en ${FC6ON}$(printf ${DRVL3})
-echo -e ">>>>>>>>>> Cleaning remaining pieces"
-echo -en ${FC6ON}$(printf ${DRVL3})
-echo -e ''
-$SAGAR && $SAGAC
-echo -e '' 
-echo -e "##############################################################################################################"
-echo -e "#  If you have no issues with your connection, all steps should have been completed successfully, good luck! #"
-echo -e "#  Update process is DONE!                                                                                   #"
-echo -e "##############################################################################################################"
-echo -e ''
-echo -e ''
+echo -en "${FC6ON}$(printf ${DRHL3})${FCOFF}\n"
+echo -en ">>>>>>>>>> Cleaning remaining pieces\n"
+echo -en "${FC6ON}$(printf ${DRHL3})${FCOFF}\n"
 
-else
-printf "You are offline! Check your connection. "
-echo -en ${FC1ON}$(printf ${DRVL5})
+	$SAGAR && $SAGAC
+
+echo -en "${FC6ON}$(printf ${DRHL1})\n"
+echo -en "   If you have no issues with your connection, all steps should have been completed successfully, good luck!\n"
+echo -en "   Update process is DONE!\n"
+echo -en "$(printf ${DRHL1})${FCOFF}\n"
+	
+	else
+
+		
+		echo -en "${FC6ON}$(printf ${DRHL5})\n"
+		echo -en "${FC6ON}You are${FCOFF} ${SATT_BLK}${SATT_BLD}${FC1ON}OFFLINE!${FCOFF} ${FC6ON}Please check your connection.${FCOFF}\n"
+		echo -en "${FC6ON}$(printf ${DRHL5})\n"
 fi
 
 exit 0

@@ -10,8 +10,13 @@
 # 6. Create better comments
 
 clear
- 
-TIMENOW=`date`
+
+f_time(){
+	TIME_LOAD=$(date)
+	echo -en $(TIME_LOAD)
+}
+
+f_time
 SAGUD='sudo apt-get update'
 SAGUG='sudo apt-get upgrade -y'
 SAGDU='sudo apt-get dist-upgrade -y'
