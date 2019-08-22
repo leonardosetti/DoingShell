@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # This is file for quick notes, tips and tricks for shell scripting.
 
 ----------------------------------------------------------------------------------------------------

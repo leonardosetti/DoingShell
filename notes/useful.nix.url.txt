@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Useful URLS for research
 https://www.commandlinefu.com/commands/browse
 https://linuxize.com
