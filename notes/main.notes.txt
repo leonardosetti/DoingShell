@@ -1,14 +1,12 @@
 # This is file for quick notes, tips and tricks for shell scripting.
 
-----------------------------------------------------------------------------------------------------
-1. How to draw horizontal lines in the terminal using bash shell:
+1.How to draw horizontal lines in the terminal using bash shell:
 
 1.a.: printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 1.b.: printf "%`tput cols`s"|sed "s/ /_/g"
 1.c.: printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}
 
-----------------------------------------------------------------------------------------------------
-2. Copy files and folders from a host to other remotely using SCP:
+2. SCP connections
 
-2.a.: scp user1@host1.com:/files/test.txt user2@user2.com:/files
-2.b.: sudo scp -r -P 2222 /home/dc-user/organize.local  dc-user@ech-10-157-149-44.mastercard.int:/home/dc-user/organize.local.copied
+scp user1@host1.com:/files/test.txt user2@user2.com:/files
+sudo scp -r -P 2222 /home/dc-user/organize.local  dc-user@ech-10-157-149-44.mastercard.int:/home/dc-user/organize.local.copied

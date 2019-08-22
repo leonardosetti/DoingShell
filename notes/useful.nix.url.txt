@@ -1,6 +1,19 @@
-Useful URLS for research
+Useful URLS for research:
+
 https://www.commandlinefu.com/commands/browse
+
 https://linuxize.com
+
 https://www.tecmint.com/
+
 https://www.cyberciti.biz/ (NixCraft)
+
 https://stackabuse.com/
+
+https://www.makeuseof.com/
+
+https://www.makeuseof.com/service/linux/
+
+https://www.makeuseof.com/service/google-android/
+
+https://www.kernel.org/doc/man-pages/
