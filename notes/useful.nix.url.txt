@@ -1,25 +1,7 @@
 <<<<<<< HEAD
-Useful URLS for research:
-
+Useful URLS for research
 https://www.commandlinefu.com/commands/browse
-
 https://linuxize.com
-
 https://www.tecmint.com/
-
 https://www.cyberciti.biz/ (NixCraft)
-
 https://stackabuse.com/
-
-=======
-Useful URLS for research:
-
-https://www.commandlinefu.com/commands/browse
-
-https://linuxize.com
-
-https://www.tecmint.com/
-
-https://www.cyberciti.biz/ (NixCraft)
-
->>>>>>> 4eafb6d36ae95d40083b6c8a27702c2e8a6cb5df
