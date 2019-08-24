@@ -18,7 +18,6 @@ fi
 ISP_CHK=$(f_chk_isp_stat)
 
 if [ "$ISP_CHK" -eq 1 ]; then
-#	ssh -p 22 leonardo@177.96.30.31
 	ssh -l leonardosetti tty.sdf.org
 else
 	echo -en "Your host myght be offline or turned off\n"
