@@ -84,7 +84,7 @@ f_timenow(){
 }
 
 
-check_connection(){			
+f_check_connection(){			
 	if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
 	  C_STATUS=1
 	else
@@ -93,9 +93,9 @@ check_connection(){
 	echo -en "$C_STATUS"
 	}
 
-connect_status=$(check_connection)
+CONNECT_STATUS=$(f_check_connection)
 
-if [ "$connect_status" -eq 1 ]; then 
+if [ "$CONNECT_STATUS" -eq 1 ]; then 
 echo -en "${SATT_BLK}${SATT_BLD}${FC3ON}You are online!${RATT_BLK}${RATT_BLD}${FCOFF}\n"
 	echo -en ${FC3ON}$(printf ${DRHL5})
 
