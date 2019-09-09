@@ -1,0 +1,92 @@
+#! /bin/bash
+
+###################################################################################################################################
+# Progarm: killth means Kill That!
+# Version: 0.01
+# Purpose: This is a simple tool to kill the given program as parameter
+# Author:  Leonardo Setti
+# Created date: 27/11/2018
+# Last modification: 14/03/2019
+# 
+# Change Log:
+#
+# 1. The to do section has been modified, and updated;
+# 2. For has been implemented, thus a list of all PID related to a program is displayed and processes terminated;
+# 3. A new necessity has been logged in to do section - item 3;
+# 4. New phrases are displayed when user types the wanted program to kill, just a friendly description
+# 5. Change log section added
+#
+# --- GUIDE:
+#
+# As system user who wants terminate a program using kill command, just type the right program name and stroke Enter key
+# the script will read the PID related to given program then kill using PID parameter
+# if any program be found the program will terminate without kills
+#
+# TODO
+# 
+# New approach rises in my mind:
+#	1. Set the kill optional after send the parameter (wanted program to kill)
+#	2. Make chosable if user wants to kill only a PID or the PGID
+#       3. Give to user a choice to giveup the assasination of process(es)
+#
+#
+# XXX
+# N/A
+#
+###################################################################################################################################
+
+clear
+
+echo ""
+echo ""
+echo -n "Enter the program name wanted to kill: "
+echo -n ""
+read TARGET
+echo -n $TARGET "has been chosen as your victim... poor guy!"
+killer(){
+
+for pid  in $CATCHPID; 
+	do kill $pid; 
+	done
+       
+	# kill -- -$CATCHPID
+}
+
+	CATCH_HEAD=`ps -eo ppid,pgid,pid,time,ouid,ruser,pcpu,start,comm | grep PID` 
+	CATCHPID=`ps -eo pid,comm | grep "$TARGET" | awk '{print $1}'`
+	CATCHPPID=`ps -eo ppid,comm | grep "$TARGET" | awk '{print $1}'`
+	CATCHPGID=`ps -eo pgid,comm | grep "$TARGET" | awk '{print $1;exit}'`
+	WHOLESTAT=`ps -eo ppid,pgid,pid,time,ouid,ruser,pcpu,start,comm | grep "$TARGET"` 
+	CAPTURED_TGT=`ps -eo pid,comm | grep "$TARGET" | awk '{print $2;exit}'`
+	PID_LINE=`pidof $CAPTURED_TGT`
+	FLAG=1
+	
+	if [ -z "$CATCHPID" ]
+		then 	
+			echo "There is no process related to: ""$TARGET"
+			echo""	
+		else
+			echo ""
+		        echo "$CATCH_HEAD"
+			echo "$WHOLESTAT"		
+			echo ""
+			echo "Targeted process refers to ""$CAPTURED_TGT" " PID(s): ""$PID_LINE" "and Process Group:" "$CATCHPGID"
+		        echo ""
+			echo "Killing ""$CAPTURED_TGT"" process PID: ""$PID_LINE"
+			killer
+			echo""
+
+	FLAG=0
+	fi
+
+	if [ $FLAG = 0 ] 
+		then 
+			echo "The process has been killed successfully"
+		else
+			echo "The killing process related to ""$TARGET"" has failed or requested PID doesn't exists"
+	fi
+
+echo ""
+echo "DONE"
+echo ""
+exit 0
