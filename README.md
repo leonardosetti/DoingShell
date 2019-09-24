@@ -3,10 +3,10 @@
 
 ## All posted scripts are home made and arent sophisticaated enough to be distributed. 
 
-All scripts were disigned in Debian 10 using Gnome.
-The main purpose of this content is practice Bash iplementetion from beginning.
-Be free to get it and improve. 
+All scripts were designed in  Debian GNU/Linux 10 (buster) and Gnome 3.30.2.
+The main purpose of this content is practice Bash iplementation from zero.
+All scripts are under GPL - GNU General Public License v3.0
 
-Ther is no license defined yet... but it will sooner 
+Be free to get it and improve. 
 
 Thank you
