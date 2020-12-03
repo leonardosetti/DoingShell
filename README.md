@@ -1,7 +1,7 @@
 # Shell personal scripts
 
 
-## All posted scripts are home made and arent sophisticaated enough to be distributed. 
+## All posted scripts are home made and arent sophisticated enough to be distributed. 
 
 All scripts were designed in  Debian GNU/Linux 10 (buster) and Gnome 3.30.2.
 The main purpose of this content is practice Bash iplementation from zero.
