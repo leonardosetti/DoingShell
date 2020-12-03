@@ -1,7 +1,6 @@
-#!/bin/bash
-### termux use the path: /data/data/com.termux/files/usr/bin/bash
+# !/usr/bin/bash
 
-###################################################################################################################################
+#################################################################################################################################
 # Program: chk_dc means check domestic connection
 # Version: 0.01
 # Purpose: chk_dc is for simple check domestic connectivity 
