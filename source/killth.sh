@@ -4,8 +4,8 @@
 # Progarm: killth means Kill That!
 # Version: 0.02
 # Purpose: This is a simple tool to kill the given program as parameter
-# Author:  Leonardo Setti
-# Created date: 27/11/2018
+# Author:  Leonardo Setti - email leonardo.setti@protonmail.com | https://github.com/leonardosetti
+# Created date: 27/11/20180
 # Last modification: 10/09/2019
 # 
 # Change Log:
@@ -27,7 +27,7 @@
 # New approach rises in my mind:
 #	1. Set the kill optional after send the parameter (wanted program to kill)
 #	2. Make chosable if user wants to kill only a PID or the PGID
-#       3. Give to user a choice to giveup the assasination of process(es)
+#   3. Give to user a choice to giveup the assasination of process(es)
 #
 #
 # XXX
